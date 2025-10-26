@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel ShangHai</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 150vh;
+        width: 100vw;
+        overflow-x: hidden;
+      }
+      .header-img {
+        width: 100vw;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 2px 12px rgba(50, 18, 122, 0.13);
+      }
+      .nav {
+        position: absolute;
+        top: 32px;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        gap: 36px;
+        z-index: 3;
+      }
+      .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.18rem;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+        transition: color 0.2s, border-bottom 0.2s;
+        padding: 8px 0;
+        border-bottom: 2px solid transparent;
+        text-transform: uppercase;
+        text-shadow: 0 2px 8px #32127a;
+      }
+      .nav a:hover {
+        color: #b0e0e6;
+        border-bottom: 2px solid #b0e0e6;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div style="position: relative">
+        <img
+          src="shanghai.png"
+          alt="Shanghai Header"
+          class="header-img"
+          style="
+            height: 40vh;
+            width: 100vw;
+            object-fit: cover;
+            box-shadow: 0 8px 32px 0 #32127a88;
+          "
+        />
+        <div
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 40vh;
+            background: rgba(255, 255, 255, 0.38);
+            z-index: 3;
+            pointer-events: none;
+          "
+        ></div>
+        <nav class="nav">
+          <a href="iindex.html">Trang chủ</a>
+          <a href="diemden.html">Điểm đến</a>
+          <a href="amthuc.html">Ẩm thực</a>
+          <a href="lienhe.html">Liên hệ</a>
+        </nav>
+      </div>
+    </div>
+
+    <div
+      style="
+        width: 100vw;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-top: 56px;
+        position: relative;
+      "
+    >
+      <img
+        src="lujiazui.png"
+        alt="Lujiazui"
+        style="
+          width: 380px;
+          height: 380px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-left: 32px;
+          position: relative;
+          z-index: 2;
+          box-shadow: 0 4px 24px #32127a22;
+        "
+      />
+      <img
+        src="thaptruyenhinh.png"
+        alt="Tháp Truyền Hình"
+        style="
+          width: 380px;
+          height: 380px;
+          object-fit: cover;
+          border-radius: 12px;
+          position: absolute;
+          left: 340px;
+          top: 200px;
+          z-index: 1;
+          box-shadow: 0 2px 16px #32127a22;
+          opacity: 0.92;
+        "
+      />
+
+      <div
+        style="
+          margin-left: 480px;
+          margin-top: 50px;
+          max-width: 520px;
+          position: absolute;
+          top: 20px;
+          left: 300px;
+          z-index: 5;
+          color: #32127a;
+          font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        "
+      >
+        <div
+          style="
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+          "
+        >
+          LUJIAZUI &amp; DONGFANGMINGZHUTA
+        </div>
+        <div style="font-size: 1.35rem; line-height: 1.8">
+          + Lục Gia Chủy là khu trung tâm tài chính-thương mại hiện đại nổi
+          tiếng ở Thượng Hải<br />
+          + Tháp Truyền Hình là biểu tượng nổi bật nhất của khu Lục Gia Chủy và
+          cũng là một công trình đặc trưng ở Thượng Hải
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+        width: 100vw;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        margin-top: 120px; /* tăng khoảng cách xuống dưới */
+        position: relative;
+      "
+    >
+      <div
+        style="
+          margin-right: 380px;
+          margin-top: 50px;
+          max-width: 520px;
+          position: absolute;
+          top: 130px;
+          left: 150px;
+          z-index: 5;
+          color: #32127a;
+          font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        "
+      >
+        <div
+          style="
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+          "
+        >
+          DISNEY &amp; ZOOTOPIA
+        </div>
+        <div style="font-size: 1.4rem; line-height: 1.8">
+          + Disney ShangHai là khu nghỉ dưỡng và khu vui chơi Disney đầu tiên
+          tại Trung Quốc đại lục <br />
+          + Zootopia là khu vực mới hấp dẫn và đây cũng là khu chủ đề đầu tiên
+          trên thế giới dựa theo bộ phim Zootopia của Disney
+        </div>
+      </div>
+      <img
+        src="disney.png"
+        alt="Disney"
+        style="
+          width: 320px;
+          height: 320px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-right: 32px;
+          position: relative;
+          z-index: 2;
+          box-shadow: 0 4px 24px #32127a22;
+        "
+      />
+      <img
+        src="zootopia.png"
+        alt="Zootopia"
+        style="
+          width: 320px;
+          height: 320px;
+          object-fit: cover;
+          border-radius: 12px;
+          position: absolute;
+          right: 300px;
+          top: 130px;
+          z-index: 1;
+          box-shadow: 0 2px 16px #32127a22;
+          opacity: 0.92;
+        "
+      />
+    </div>
+  </body>
+</html>

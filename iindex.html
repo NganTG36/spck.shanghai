@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel ShangHai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 150vh;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .half-bg {
+      width: 100vw;
+      height: 40vh;
+      background: linear-gradient(to bottom,
+          #32127a 20%,
+          #4b0082 30%,
+          #6a0dad 50%,
+          #8a2be2 70%);
+      position: relative;
+    }
+
+    .header {
+      width: 100vw;
+      height: 128px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(50, 18, 122, 0.13);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .nav {
+      display: flex;
+      gap: 36px;
+    }
+
+    .nav a {
+      color: #e6e6fa;
+      text-decoration: none;
+      font-size: 1.18rem;
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      transition: color 0.2s, border-bottom 0.2s;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+      text-transform: uppercase;
+    }
+
+    .nav a:hover {
+      color: #b0e0e6;
+      border-bottom: 2px solid #b0e0e6;
+    }
+
+    .nav-bottom {
+      display: flex;
+      gap: 48px;
+    }
+
+    .nav-bottom a {
+      color: #32127a;
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 2px solid transparent;
+      padding: 8px 0;
+      cursor: pointer;
+    }
+
+    .nav a:hover {
+      color: #b0e0e6;
+      border-bottom: 2px solid #b0e0e6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="half-bg" id="top"></div>
+  <div class="header">
+    <nav class="nav">
+      <a href="#">Trang chủ</a>
+      <a href="diemden.html">Điểm đến</a>
+      <a href="#">Ẩm thực</a>
+      <a href="#top">Liên hệ</a>
+    </nav>
+  </div>
+  <img src="skyline.png" alt="Shanghai Skyline" style="
+        position: absolute;
+        left: 0;
+        top: calc(-25vh - 80px);
+        width: 100vw;
+        height: auto;
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+      " />
+  <img src="logo.png" alt="Logo" style="
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        width: 56px;
+        height: 56px;
+        z-index: 100;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px #32127a44;
+        background: #fff;
+      " />
+  <div id="mainpic-slider" style="
+        position: absolute;
+        top: 40vh;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+      ">
+    <img src="mainpic.png" id="slider-img" alt="Main Pic" style="
+          width: 100vw;
+          height: 100vh;
+          object-fit: cover;
+          transition: opacity 0.5s;
+        " />
+    <button id="prev-btn" style="
+          position: absolute;
+          left: 24px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: #32127a88;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          font-size: 2rem;
+          cursor: pointer;
+          z-index: 3;
+        ">
+      &lt;
+    </button>
+    <button id="next-btn" style="
+          position: absolute;
+          right: 24px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: #32127a88;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          font-size: 2rem;
+          cursor: pointer;
+          z-index: 3;
+        ">
+      &gt;
+    </button>
+  </div>
+  <script>
+    const images = ["mainpic.png", "mainpic2.png"];
+    let current = 0;
+    const sliderImg = document.getElementById("slider-img");
+    document.getElementById("prev-btn").onclick = function () {
+      current = (current - 1 + images.length) % images.length;
+      sliderImg.style.opacity = 0.3;
+      setTimeout(() => {
+        sliderImg.src = images[current];
+        sliderImg.style.opacity = 1;
+      }, 200);
+    };
+    document.getElementById("next-btn").onclick = function () {
+      current = (current + 1) % images.length;
+      sliderImg.style.opacity = 0.3;
+      setTimeout(() => {
+        sliderImg.src = images[current];
+        sliderImg.style.opacity = 1;
+      }, 200);
+    };
+  </script>
+
+  <div style="
+        position: absolute;
+        left: 0;
+        top: calc(40vh + 100vh + 32px);
+        width: 100vw;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 32px 0 24px 0;
+        z-index: 10;
+      ">
+    <nav class="nav-bottom">
+      <a href="iindex.html">Trang chủ</a>
+      <a href="#top">Điểm đến</a>
+      <a href="#top">Ẩm thực</a>
+      <a href="#top">Liên hệ</a>
+    </nav>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href="#top"]').forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
+
+  </div>
+</body>
+
+</html>

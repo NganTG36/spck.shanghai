@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ẩm Thực ShangHai</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        background: #fff;
+      }
+      .header-img {
+        width: 100vw;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 2px 12px rgba(50, 18, 122, 0.13);
+      }
+      .nav {
+        position: absolute;
+        top: 32px;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        gap: 36px;
+        z-index: 3;
+      }
+      .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.18rem;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+        transition: color 0.2s, border-bottom 0.2s;
+        padding: 8px 0;
+        border-bottom: 2px solid transparent;
+        text-transform: uppercase;
+        text-shadow: 0 2px 8px #32127a;
+      }
+      .nav a:hover {
+        color: #b0e0e6;
+        border-bottom: 2px solid #b0e0e6;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position: relative">
+      <img
+        src="shanghai.png"
+        alt="Shanghai Header"
+        class="header-img"
+        style="
+          height: 40vh;
+          width: 100vw;
+          object-fit: cover;
+          box-shadow: 0 8px 32px 0 #32127a88;
+        "
+      />
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 40vh;
+          background: rgba(255, 255, 255, 0.38);
+          z-index: 3;
+          pointer-events: none;
+        "
+      ></div>
+      <nav class="nav">
+        <a href="iindex.html">Trang chủ</a>
+        <a href="diemden.html">Điểm đến</a>
+        <a href="amthuc.html">Ẩm thực</a>
+        <a href="lienhe.html">Liên hệ</a>
+      </nav>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px">
+      <h1
+        style="
+          font-size: 3rem;
+          text-align: center;
+          margin-bottom: 40px;
+          font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+          font-weight: 700;
+          letter-spacing: 6px;
+          background: linear-gradient(90deg, #bfa3e3 0%, #32127a 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 8px #32127a44;
+        "
+      >
+        Món Ăn Đặc Sắc Ở Thượng Hải
+      </h1>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px">
+        <div
+          style="
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <img
+            src="micualong.png"
+            alt="Mì Cua Lông"
+            style="width: 100%; height: 200px; object-fit: cover"
+          />
+          <div style="padding: 15px">
+            <h2 style="font-size: 1.5rem; margin: 0 0 10px 0">Mì Cua Lông</h2>
+            <p style="margin: 0 0 10px 0">
+              Mì Cua Lông là món mì ăn kèm với thịt và gạch cua lông và mì cua
+              lông khá đắt, nhưng ở Thượng Hải thì nó được coi là món đáng thử
+              nhất.
+            </p>
+            <a
+              href="chitiet.html"
+              style="text-decoration: none; color: #32127a; font-weight: 500"
+              >Xem chi tiết</a
+            >
+          </div>
+        </div>
+        <div
+          style="
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <img
+            src="xiaolongbao.png"
+            alt="Xiaolongbao"
+            style="width: 100%; height: 200px; object-fit: cover"
+          />
+          <div style="padding: 15px">
+            <h2 style="font-size: 1.5rem; margin: 0 0 10px 0">Tiểu Long Bao</h2>
+            <p style="margin: 0 0 10px 0">
+              Tiểu long bao chính là một loại bánh bao hấp nhỏ có nước súp bên
+              trong và giá cũng vừa phải.
+            </p>
+            <a
+              href="chitiet.html"
+              style="text-decoration: none; color: #32127a; font-weight: 500"
+              >Xem chi tiết</a
+            >
+          </div>
+        </div>
+        <div
+          style="
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <img
+            src="banhbaochien.png"
+            alt="Bánh Bao Chiên"
+            style="width: 100%; height: 200px; object-fit: cover"
+          />
+          <div style="padding: 15px">
+            <h2 style="font-size: 1.5rem; margin: 0 0 10px 0">
+              Bánh Bao Chiên
+            </h2>
+            <p style="margin: 0 0 10px 0">
+              Bánh bao chiên là một loại bánh bao nhỏ nhân thịt, được chiên áp
+              chảo cho phần đáy giòn vàng, còn phần trên mềm xốp là đặc sản ở
+              Thượng Hải.
+            </p>
+            <a
+              href="chitiet.html"
+              style="text-decoration: none; color: #32127a; font-weight: 500"
+              >Xem chi tiết</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
