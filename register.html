@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Login</title>
+    <title>Register</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,18 +21,17 @@
             color: #e6eef8;
         }
 
-        
         body {
             background: url(bcg.png) center/cover no-repeat fixed;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Top navigation */
         .topbar {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
+            /* đẩy nav về phải */
             padding: 18px 28px;
             gap: 20px;
             /* thêm nền mờ để chữ nav luôn dễ đọc trên background */
@@ -56,11 +55,11 @@
             gap: 28px;
             align-items: center;
             pointer-events: auto;
+            justify-content: flex-end;
         }
 
         .nav a {
             color: #ffffff;
-            /* trắng để nổi trên background */
             text-decoration: none;
             font-weight: 700;
             padding: 8px 12px;
@@ -68,15 +67,13 @@
             transition: background .18s, transform .12s;
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
             background: rgba(255, 255, 255, 0.04);
-            /* nhẹ để nổi hơn */
         }
 
         .nav a:hover {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-2px);
         }
 
-        /* Modal center */
         .modal-wrap {
             min-height: calc(100vh - 160px);
             display: flex;
@@ -98,15 +95,6 @@
             backdrop-filter: blur(8px) saturate(120%);
             -webkit-backdrop-filter: blur(8px) saturate(120%);
             overflow: hidden;
-        }
-
-        .glass::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.12));
-            pointer-events: none;
-            mix-blend-mode: overlay;
         }
 
         .close-btn {
@@ -146,6 +134,7 @@
             margin-bottom: 10px;
         }
 
+        input[type="text"],
         input[type="email"],
         input[type="password"] {
             width: 100%;
@@ -227,12 +216,6 @@
             text-decoration: none;
         }
 
-        /* show/hide modal */
-        .hidden {
-            display: none !important;
-        }
-
-        /* responsive tweaks */
         @media (max-width:520px) {
             .topbar {
                 padding: 16px;
@@ -248,24 +231,30 @@
 
 <body>
     <header class="topbar">
-        <div class="logo"></div>
-        <nav class="nav">
+        <!-- logo removed as requested -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Services</a>
             <a href="#">Contact</a>
-            <a id="openLogin" href="#" style="border:1px solid rgba(0,0,0,0.22); padding:8px 14px; border-radius:8px;"
-                aria-label="Open login"></a>
+            <a href="#"
+                style="border:1px solid rgba(255,255,255,0.18); padding:8px 14px; border-radius:8px; color:#fff;">Register</a>
         </nav>
     </header>
 
     <main class="modal-wrap">
-        <section id="loginModal" class="glass" role="dialog" aria-labelledby="loginTitle">
+        <section class="glass" role="dialog" aria-labelledby="registerTitle">
             <button class="close-btn" id="closeBtn" aria-label="Close">✕</button>
 
-            <h1 id="loginTitle">Login</h1>
+            <h1 id="registerTitle">Register</h1>
 
-            <form id="loginForm" autocomplete="on" novalidate>
+            <form id="registerForm" autocomplete="on" novalidate>
+                <div class="field">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required>
+                    <span class="icon" aria-hidden="true">👤</span>
+                </div>
+
                 <div class="field">
                     <label for="email">Email</label>
                     <input id="email" name="email" type="email" placeholder="your@email.com" required>
@@ -278,46 +267,32 @@
                     <span class="icon" aria-hidden="true">🔒</span>
                 </div>
 
+                <div class="field">
+                    <label for="confirm">Confirm Password</label>
+                    <input id="confirm" name="confirm" type="password" placeholder="••••••••" required>
+                    <span class="icon" aria-hidden="true">🔒</span>
+                </div>
+
                 <div class="row">
-                    <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>
-                    <a class="forgot" href="#">Forget Password?</a>
+                    <label class="checkbox"><input type="checkbox" name="agree"> I agree to terms</label>
                 </div>
 
-                <button class="btn" type="submit">Login</button>
+                <button class="btn" type="submit">Register</button>
 
-                <div class="small">Don't have an account? <a href="register.html" style="font-weight:800">Register</a>
-                </div>
+                <div class="small">Already have an account? <a href="login.html" style="font-weight:800">Login</a></div>
             </form>
         </section>
     </main>
 
     <script>
-        // basic open/close behavior — modal visible by default to match the reference image
-        const modal = document.getElementById('loginModal');
+        const modal = document.querySelector('.glass');
         const closeBtn = document.getElementById('closeBtn');
-        const openBtn = document.getElementById('openLogin');
 
         closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
-        openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
-        // submit: nếu có email + password sẽ lưu trạng thái (demo) và chuyển tới index.html
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            if (!email || !password) {
-                alert('Vui lòng nhập email và mật khẩu.');
-                return;
-            }
-            // Demo: lưu trạng thái đăng nhập (thực tế dùng server)
-            sessionStorage.setItem('loggedIn', 'true');
-            sessionStorage.setItem('userEmail', email);
-            // chuyển tới index.html
-            window.location.href = 'index.html';
+            alert('Đã nhấn Register (demo)');
         });
     </script>
 </body>
