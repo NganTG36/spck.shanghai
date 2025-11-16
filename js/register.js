@@ -2,13 +2,6 @@
   const form = document.getElementById("registerForm");
   if (!form) return;
 
-  // Tắt tự động điền
-  form.setAttribute("autocomplete", "off");
-  const inputs = form.querySelectorAll("input");
-  inputs.forEach((input) => {
-    input.setAttribute("autocomplete", "new-password");
-  });
-
   // Định nghĩa các regex kiểm tra mật khẩu
   const reLower = /[a-z]/; // chữ thường
   const reUpper = /[A-Z]/; // chữ hoa
@@ -31,12 +24,10 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = (document.getElementById("name")?.value || "").trim();
-    const email = (document.getElementById("email")?.value || "")
-      .trim()
-      .toLowerCase();
-    const password = (document.getElementById("password")?.value || "").trim();
-    const confirm = (document.getElementById("confirm")?.value || "").trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const password = document.getElementById("password").value.trim();
+    const confirm = document.getElementById("confirm").value.trim();
 
     if (!name || !email || !password || !confirm) {
       alert("Vui lòng điền đầy đủ thông tin!");
@@ -84,15 +75,7 @@
     });
     saveUsers(users);
 
-    // Tự động đăng nhập
-    localStorage.setItem("currentUser", JSON.stringify({ name, email }));
-    sessionStorage.setItem("loggedIn", "true");
-    sessionStorage.setItem("userEmail", email);
-
     // Chuyển đến trang chủ
     window.location.href = "index.html";
   });
-
-  // Xóa form khi tải trang
-  form.reset();
 })();
