@@ -1,6 +1,6 @@
-// Xác thực đăng nhập với users lưu trong localStorage và chuyển sang index.html
+// Kiểm tra & xử lý đăng nhập, redirect sang index.html nếu thành công
 (() => {
-  // Nếu đã login thì chuyển thẳng
+  // Nếu đã đăng nhập
   if (localStorage.getItem("currentUser")) {
     console.log("Đã có currentUser -> chuyển tới index.html");
     window.location.href = "index.html";

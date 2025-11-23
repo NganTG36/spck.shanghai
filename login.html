@@ -21,9 +21,10 @@
             color: #e6eef8;
         }
 
-        
+
         body {
-            background: url(bcg.png) center/cover no-repeat fixed;
+            /* sửa dùng url(...) cho background */
+            background: url("img/bcg.jpg") center/cover no-repeat fixed;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -265,16 +266,19 @@
 
             <h1 id="loginTitle">Login</h1>
 
-            <form id="loginForm" autocomplete="on" novalidate>
+            <!-- chú ý: autocomplete="off" để tránh tự động điền -->
+            <form id="loginForm" autocomplete="off" novalidate>
                 <div class="field">
                     <label for="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="your@email.com" required>
+                    <input id="email" name="email" type="email" placeholder="your@email.com" required
+                        autocomplete="off">
                     <span class="icon" aria-hidden="true">📧</span>
                 </div>
 
                 <div class="field">
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="••••••••" required>
+                    <input id="password" name="password" type="password" placeholder="••••••••" required
+                        autocomplete="off">
                     <span class="icon" aria-hidden="true">🔒</span>
                 </div>
 
@@ -292,7 +296,7 @@
     </main>
 
     <script>
-        // basic open/close behavior — modal visible by default to match the reference image
+        // mở/đóng modal giữ nguyên
         const modal = document.getElementById('loginModal');
         const closeBtn = document.getElementById('closeBtn');
         const openBtn = document.getElementById('openLogin');
@@ -303,23 +307,10 @@
             modal.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // submit: nếu có email + password sẽ lưu trạng thái (demo) và chuyển tới index.html
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            if (!email || !password) {
-                alert('Vui lòng nhập email và mật khẩu.');
-                return;
-            }
-            // Demo: lưu trạng thái đăng nhập (thực tế dùng server)
-            sessionStorage.setItem('loggedIn', 'true');
-            sessionStorage.setItem('userEmail', email);
-            // chuyển tới index.html
-            window.location.href = 'index.html';
-        });
     </script>
+
+    <!-- load file xử lý login -->
+    <script src="js/login.js"></script>
 </body>
 
 </html>
