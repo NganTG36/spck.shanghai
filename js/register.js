@@ -1,62 +1,33 @@
-if (localStorage.getIteam("curentUser")) {
-  location.href = "index.html";
-}
-
-let form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let email = document.getElementById("email").value.trim().toLowerCase();
-  let password = document.getElementById("password").value.trim();
-  let username = document.getElementById("username").value.trim();
-
-  let lowerCaseLetters = /[a-z]/g;
-  let upperCaseLetters = /[A-Z]/g;
-  let numbers = /[0-9]/g;
-
-  if (username.length < 6) {
-    alert("Tên đăng nhập phải có ít nhất 6 ký tự.");
-  } else if (password.length < 8) {
-    alert("Mật khẩu phải có ít nhất 8 ký tự.");
-  } else if (!password.match(lowerCaseLetters)) {
-    alert("Mật khẩu phải chứa ít nhất một chữ cái viết thường.");
-  } else if (!password.match(upperCaseLetters)) {
-    alert("Mật khẩu phải chứa ít nhất một chữ cái viết hoa.");
-  } else if (!password.match(numbers)) {
-    alert("Mật khẩu phải chứa ít nhất một chữ số.");
-  } else {
-    if (loacalStorage.getItem("users")) {
-      let users = JSON.parse(localStorage.getItem("users"));
-
-      users.push({
-        email,
-        password,
-        username,
-      });
-
-      localStorage.setItem("users", JSON.stringify(users));
-    } else {
-      localStorage.setItem(
-        "users",
-        JSON.stringify([
-          {
-            email,
-            password,
-            username,
-          },
-        ])
-      );
-    }
-    location.href = "login.html";
-  }
-});
-
-// Lưu user vào localStorage (key: "users") và chuyển về login sau khi đăng ký thành công
+// Đăng ký tài khoản + icon mắt cho password
 document.addEventListener("DOMContentLoaded", () => {
+  // Nếu đã login rồi thì không cho vào lại
+  if (
+    localStorage.getItem("currentUser") ||
+    sessionStorage.getItem("currentUser")
+  ) {
+    window.location.href = "index.html";
+    return;
+  }
+
   const form = document.getElementById("registerForm");
   if (!form) {
     console.error("Không tìm thấy form #registerForm trong register.html");
     return;
   }
+
+  // Icon mắt cho password & confirm
+  const toggleIcons = document.querySelectorAll(".password-toggle");
+  toggleIcons.forEach((icon) => {
+    const targetId = icon.getAttribute("data-target");
+    const input = document.getElementById(targetId);
+    if (!input) return;
+
+    icon.addEventListener("click", () => {
+      const isHidden = input.type === "password";
+      input.type = isHidden ? "text" : "password";
+      icon.textContent = isHidden ? "🙈" : "👁";
+    });
+  });
 
   const reLower = /[a-z]/;
   const reUpper = /[A-Z]/;
@@ -70,13 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return [];
     }
   }
+
   function saveUsers(users) {
     localStorage.setItem("users", JSON.stringify(users));
-    console.log("Đã lưu users:", users);
   }
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const name = (document.getElementById("name")?.value || "").trim();
     const email = (document.getElementById("email")?.value || "")
       .trim()
@@ -97,19 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     if (!reLower.test(password)) {
-      alert("Mật khẩu cần chữ thường");
+      alert("Mật khẩu cần ít nhất 1 chữ thường!");
       return;
     }
     if (!reUpper.test(password)) {
-      alert("Mật khẩu cần chữ hoa");
+      alert("Mật khẩu cần ít nhất 1 chữ hoa!");
       return;
     }
     if (!reNumberOrSpecial.test(password)) {
-      alert("Mật khẩu cần số hoặc ký tự đặc biệt");
+      alert("Mật khẩu cần số hoặc ký tự đặc biệt!");
       return;
     }
     if (password !== confirm) {
-      alert("Mật khẩu xác nhận không khớp");
+      alert("Mật khẩu xác nhận không khớp!");
       return;
     }
 
@@ -119,19 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const newUser = { name, email, password, createdAt: Date.now() };
-    users.push(newUser);
-
-    try {
-      saveUsers(users);
-    } catch (err) {
-      console.error("Lỗi lưu users", err);
-      alert("Lỗi khi lưu dữ liệu. Kiểm tra console.");
-      return;
-    }
+    users.push({ name, email, password, createdAt: Date.now() });
+    saveUsers(users);
 
     alert("Đăng ký thành công. Mời bạn đăng nhập.");
-    // chuyển về trang login để người dùng đăng nhập
     window.location.href = "login.html";
   });
 });

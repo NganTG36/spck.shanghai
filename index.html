@@ -1,227 +1,262 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Travel Shanghai</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Travel Shanghai</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #1f2937;
-      --glass-border: rgba(255, 255, 255, 0.18);
-      --glass-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      min-height: 100vh;
-      font-family: 'Nunito', system-ui, Arial;
-      background: url(bcg.png) center/cover no-repeat fixed;
-      color: #e6eef8;
-    }
-
-    /* Header với glass effect */
-    .header {
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.10));
-      padding: 18px 28px;
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .nav {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .nav a:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateY(-2px);
-    }
-
-    /* Welcome section với glass card */
-    .hero {
-      min-height: calc(100vh - 200px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .glass {
-      width: 90%;
-      max-width: 1200px;
-      background: var(--glass-bg);
-      border: 1.5px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 40px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 12px 40px rgba(2, 6, 23, 0.55);
-    }
-
-    .welcome-text {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .welcome-text h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: #fff;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    .welcome-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    /* Cards section */
-    .content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 20px;
-    }
-
-    .card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 24px;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      color: #fff;
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.5;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.10));
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    /* Canvas phía trên cùng */
-    #fwCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 100;
-    }
-
-    @media (max-width: 768px) {
-      .glass {
-        padding: 20px;
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --accent: #1f2937;
+        --glass-border: rgba(255, 255, 255, 0.18);
+        --glass-bg: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
+        );
       }
 
-      .welcome-text h1 {
-        font-size: 32px;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100vh;
+        font-family: "Nunito", system-ui, Arial;
+        background: url(bcg.png) center/cover no-repeat fixed;
+        color: #e6eef8;
+      }
+
+      /* Header với glass effect */
+      .header {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.1)
+        );
+        padding: 18px 28px;
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        justify-content: flex-end;
       }
 
       .nav {
-        gap: 15px;
+        display: flex;
+        gap: 28px;
+        align-items: center;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <canvas id="fwCanvas" aria-hidden="true"></canvas>
+      .nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
+        background: rgba(255, 255, 255, 0.04);
+      }
 
-  <header class="header">
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="#" id="logoutBtn" style="border:1px solid rgba(255,255,255,0.18);">Logout</a>
-    </nav>
-  </header>
+      .nav a:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-2px);
+      }
 
-  <main class="hero">
-    <div class="glass">
-      <div class="welcome-text">
-        <h1>Welcome to Shanghai</h1>
-        <p>Discover the magic of one of Asia's most vibrant cities</p>
+      /* Welcome section với glass card */
+      .hero {
+        min-height: calc(100vh - 200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+
+      .glass {
+        width: 90%;
+        max-width: 1200px;
+        background: var(--glass-bg);
+        border: 1.5px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 40px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 12px 40px rgba(2, 6, 23, 0.55);
+      }
+
+      .welcome-text {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .welcome-text h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #fff;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      .welcome-text p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Cards section */
+      .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+        backdrop-filter: blur(8px);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card h3 {
+        color: #fff;
+        margin-bottom: 12px;
+        font-size: 20px;
+      }
+
+      .card p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.5;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.1)
+        );
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Canvas phía trên cùng */
+      #fwCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      @media (max-width: 768px) {
+        .glass {
+          padding: 20px;
+        }
+
+        .welcome-text h1 {
+          font-size: 32px;
+        }
+
+        .nav {
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="fwCanvas" aria-hidden="true"></canvas>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a
+          href="#"
+          id="logoutBtn"
+          style="border: 1px solid rgba(255, 255, 255, 0.18)"
+          >Logout</a
+        >
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="glass">
+        <div class="welcome-text">
+          <h1>Welcome to Shanghai</h1>
+          <p>Discover the magic of one of Asia's most vibrant cities</p>
+        </div>
+        <div class="content">
+          <div class="card">
+            <h3>The Bund</h3>
+            <p>
+              Experience the iconic waterfront area showcasing Shanghai's
+              colonial architecture.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Yu Garden</h3>
+            <p>
+              Visit this beautiful classical Chinese garden from the Ming
+              Dynasty.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Pudong Skyline</h3>
+            <p>
+              Marvel at the futuristic skyline featuring the Oriental Pearl
+              Tower.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="content">
-        <div class="card">
-          <h3>The Bund</h3>
-          <p>Experience the iconic waterfront area showcasing Shanghai's colonial architecture.</p>
-        </div>
-        <div class="card">
-          <h3>Yu Garden</h3>
-          <p>Visit this beautiful classical Chinese garden from the Ming Dynasty.</p>
-        </div>
-        <div class="card">
-          <h3>Pudong Skyline</h3>
-          <p>Marvel at the futuristic skyline featuring the Oriental Pearl Tower.</p>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>© 2025 Travel Shanghai. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>© 2025 Travel Shanghai. All rights reserved.</p>
+    </footer>
 
-  <img src="img/mainpic2.jpg" alt="Photo">
+    <img src="img/mainpic2.jpg" alt="Photo" />
 
-  <script>
-    // Kiểm tra đăng nhập
-    if (!localStorage.getItem('currentUser')) {
-      window.location.href = 'login.html';
-    }
+    <script>
+      // Lấy user từ session trước, nếu không có thì mới kiểm tra bản "remember"
+      const currentUserRaw =
+        sessionStorage.getItem("currentUser") ||
+        localStorage.getItem("currentUser");
 
-    // Xử lý logout
-    document.getElementById('logoutBtn').addEventListener('click', (e) => {
-      e.preventDefault();
-      localStorage.removeItem('currentUser');
-      sessionStorage.removeItem('loggedIn');
-      sessionStorage.removeItem('userEmail');
-      window.location.href = 'login.html';
-    });
-  </script>
-</body>
+      if (!currentUserRaw) {
+        window.location.href = "login.html";
+      }
 
+      document.getElementById("logoutBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        // xoá cả phiên hiện tại và remember
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("rememberMe");
+        sessionStorage.removeItem("currentUser");
+        sessionStorage.removeItem("loggedIn");
+        sessionStorage.removeItem("userEmail");
+        window.location.href = "login.html";
+      });
+    </script>
+  </body>
 </html>
