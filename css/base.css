@@ -8,6 +8,6 @@ html,
 body {
   min-height: 100vh;
   font-family: "Nunito", system-ui, Arial, sans-serif;
-  background: url("../img/bcg.png") center / cover no-repeat fixed;
+  background: url("../img/bg.jpg") center / cover no-repeat fixed;
   color: #000;
 }
