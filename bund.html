@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Điểm Đến - Travel Shanghai</title>
+  <title>The Bund - Travel Shanghai</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
@@ -113,30 +113,28 @@
       /* Đen mờ */
     }
 
-    /* Cards section với ảnh */
-    .content {
+    /* Gallery section */
+    .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
     }
 
-    .card {
+    .gallery-item {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
-      padding: 24px;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease;
+      padding: 20px;
       text-align: center;
-      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .card:hover {
+    .gallery-item:hover {
       transform: translateY(-5px);
     }
 
-    .card img {
+    .gallery-item img {
       width: 100%;
       height: 200px;
       object-fit: cover;
@@ -144,17 +142,29 @@
       margin-bottom: 16px;
     }
 
-    .card h3 {
-      color: #000000;
-      /* Đen */
-      margin-bottom: 12px;
-      font-size: 20px;
+    .gallery-item p {
+      color: rgba(0, 0, 0, 0.8);
+      line-height: 1.5;
     }
 
-    .card p {
-      color: rgba(0, 0, 0, 0.8);
-      /* Đen mờ */
-      line-height: 1.5;
+    /* Nút quay lại */
+    .back-btn {
+      display: block;
+      margin: 40px auto 0;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .back-btn:hover {
+      background: rgba(220, 20, 60, 0.8);
+      transform: translateY(-2px);
     }
 
     /* Footer */
@@ -198,67 +208,28 @@
   <main class="hero">
     <div class="glass">
       <div class="welcome-text">
-        <h1>Điểm Đến Nổi Tiếng Tại ShangHai</h1>
-        <p>Khám phá những địa điểm tuyệt vời nhất ở thành phố năng động này</p>
+        <h1>The Bund</h1>
+        <p>Khám phá bờ sông Hoàng Phố với kiến trúc thuộc địa và tầm nhìn tuyệt đẹp ra Pudong, biểu tượng của lịch sử
+          Shanghai.</p>
       </div>
-      <div class="content">
-        <a href="disney.html" style="text-decoration: none;">
-          <div class="card">
-            <img src="img/disney.jpg" alt="Shanghai Disneyland" />
-            <h3>Shanghai Disneyland</h3>
-            <p>
-              Shanghai Disneyland là công viên giải trí Disney đầu tiên trên đất liền Trung Quốc, mang đến trải nghiệm
-              kỳ diệu với các khu vực chủ đề, trò chơi mạo hiểm và nhân vật Disney yêu thích.
-            </p>
-          </div>
-        </a>
-        <div class="card" onclick="window.location.href='btangnthuat.html'">
-          <img src="img/btang ngthuat.jpg" alt="Bảo Tàng Nghệ Thuật" />
-          <h3>Bảo Tàng Nghệ Thuật</h3>
-          <p>
-            Bảo tàng nghệ thuật với bộ sưu tập tác phẩm nghệ thuật Trung Hoa và quốc tế, nơi bạn có thể chiêm ngưỡng
-            các bức tranh, tượng điêu khắc và triển lãm đương đại.
-          </p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="img/benthuonghai2.jpg" alt="Bờ sông Thượng Hải 2" />
+          <p>Bờ sông Hoàng Phố với kiến trúc cổ điển và tầm nhìn tuyệt đẹp ra sông, nơi bạn có thể dạo bộ và thưởng
+            ngoạn cảnh quan.</p>
         </div>
-        <div class="card" onclick="window.location.href='gentle.html'">
-          <img src="img/gentle.jpg" alt="Gentle Monster" />
-          <h3>Gentle Monster</h3>
-          <p>
-            Cửa hàng kính mắt thời trang cao cấp với thiết kế độc đáo và phong cách nghệ thuật, nơi bạn có thể khám phá
-            các mẫu kính mắt sáng tạo và mua sắm.
-          </p>
+        <div class="gallery-item">
+          <img src="img/thaptruyenhinh.jpg" alt="Tháp Truyền Hình" />
+          <p>Tháp Truyền Hình Đông Phương Minh Châu, biểu tượng của Thượng Hải với thiết kế độc đáo và tầm nhìn toàn
+            cảnh thành phố.</p>
         </div>
-        <div class="card" onclick="window.location.href='namkinh.html'">
-          <img src="img/namkinh.jpg" alt="Nanjing Road" />
-          <h3>Nanjing Road</h3>
-          <p>
-            Phố mua sắm nổi tiếng nhất Trung Quốc, với hàng ngàn cửa hàng, nhà hàng và trung tâm thương mại.
-          </p>
-        </div>
-        <div class="card" onclick="window.location.href='lujiazui.html'">
-          <img src="img/lujiazui.jpg" alt="Lujiazui" />
-          <h3>Lujiazui</h3>
-          <p>
-            Khu vực tài chính hiện đại với các tòa nhà chọc trời như Tháp Tài Chính Thượng Hải và Tháp Đông Phương Minh
-            Châu, biểu tượng của sự phát triển kinh tế.
-          </p>
-        </div>
-        <div class="card" onclick="window.location.href='wukanglu.html'">
-          <img src="img/wukanglu.jpg" alt="Wukanglu" />
-          <h3>Wukanglu</h3>
-          <p>
-            Con đường lịch sử với kiến trúc Pháp thuộc địa, vườn hoa và không khí lãng mạn, lý tưởng cho những buổi dạo
-            bộ và khám phá văn hóa.
-          </p>
-        </div>
-        <div class="card" onclick="window.location.href='bund.html'">
-          <img src="img/benthuonghai.jpg" alt="The Bund" />
-          <h3>The Bund</h3>
-          <p>
-            Bờ sông Hoàng Phố với kiến trúc thuộc địa và tầm nhìn tuyệt đẹp ra Pudong, biểu tượng của lịch sử Shanghai.
+        <div class="gallery-item">
+          <img src="img/thaptruyenhinh2.jpg" alt="Tháp Truyền Hình 2" />
+          <p>Khám phá Tháp Truyền Hình từ góc nhìn khác, nơi bạn có thể trải nghiệm các hoạt động giải trí và văn hóa.
           </p>
         </div>
       </div>
+      <a href="diemden.html" class="back-btn">Quay Lại Điểm Đến</a>
     </div>
   </main>
 

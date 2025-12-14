@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Shanghai Disneyland - Travel Shanghai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --accent: #dc143c;
+            /* Crimson - màu hồng đỏ chủ đạo */
+            --glass-border: rgba(220, 20, 60, 0.3);
+            /* Hồng đỏ mờ cho border */
+            --glass-bg: linear-gradient(180deg,
+                    rgba(220, 20, 60, 0.1),
+                    rgba(220, 20, 60, 0.05));
+            /* Gradient hồng đỏ mờ */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100vh;
+            font-family: "Nunito", system-ui, Arial;
+            background: url(bcg.png) center/cover no-repeat fixed;
+            color: #000000;
+            /* Đen */
+        }
+
+        /* Header với glass effect hồng đỏ */
+        .header {
+            background: linear-gradient(180deg,
+                    rgba(220, 20, 60, 0.6),
+                    rgba(220, 20, 60, 0.2));
+            padding: 18px 28px;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #000000;
+            /* Đen */
+            text-decoration: none;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
+            background: rgba(255, 228, 225, 0.1);
+            /* Hồng nhạt mờ */
+        }
+
+        .nav a:hover {
+            background: rgba(255, 228, 225, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Welcome section với glass card hồng đỏ */
+        .hero {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .glass {
+            width: 90%;
+            max-width: 1200px;
+            background: var(--glass-bg);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 12px 40px rgba(220, 20, 60, 0.4);
+            /* Hồng đỏ shadow */
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #000000;
+            /* Đen */
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.9);
+            /* Đen mờ */
+        }
+
+        /* Cards section với ảnh */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card .images {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .card .images img {
+            width: 48%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .card img.single {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            color: #000000;
+            /* Đen */
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: rgba(0, 0, 0, 0.8);
+            /* Đen mờ */
+            line-height: 1.5;
+        }
+
+        /* Nút quay lại */
+        .back-btn {
+            display: block;
+            margin: 40px auto 0;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .back-btn:hover {
+            background: rgba(220, 20, 60, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(0deg,
+                    rgba(220, 20, 60, 0.6),
+                    rgba(220, 20, 60, 0.2));
+            color: rgba(0, 0, 0, 0.8);
+            /* Đen mờ */
+        }
+
+        @media (max-width: 768px) {
+            .glass {
+                padding: 20px;
+            }
+
+            .welcome-text h1 {
+                font-size: 32px;
+            }
+
+            .nav {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="diemden.html">Place</a>
+            <a href="amthuc.html">Food</a>
+            <a href="#contact">Contact</a>
+            <a href="#" id="logoutBtn" style="border: 1px solid rgba(220, 20, 60, 0.5)">Logout</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="glass">
+            <div class="welcome-text">
+                <h1>Shanghai Disneyland</h1>
+                <p>Trải nghiệm thế giới kỳ diệu của Disney tại Trung Quốc</p>
+            </div>
+            <div class="content">
+                <div class="card">
+                    <div class="images">
+                        <img src="img/disney2.jpg" alt="Gardens of Imagination" />
+                        <img src="img/disneyticket.jpg" alt="Disney Ticket" />
+                    </div>
+                    <h3>Gardens of Imagination</h3>
+                    <p>
+                        Khu vườn với các trò chơi sáng tạo và nhân vật Disney yêu thích như Dumbo và Peter Pan. Mua vé
+                        để trải nghiệm các khu vực hấp dẫn với giá cả hợp lý.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/tron.jpg" alt="Tron Lightcycle Power Run" class="single" />
+                    <h3>Tron Lightcycle Power Run</h3>
+                    <p>
+                        Trải nghiệm chuyến đi mạo hiểm tốc độ cao trên xe đạp ánh sáng trong thế giới kỹ thuật số của
+                        Tron, với hiệu ứng ánh sáng và âm thanh ấn tượng.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/zootopia.jpg" alt="Zootopia" class="single" />
+                    <h3>Zootopia</h3>
+                    <p>
+                        Khám phá thành phố động vật với các khu vực mô phỏng phim hoạt hình Zootopia, nơi bạn có thể gặp
+                        gỡ các nhân vật và tham gia các hoạt động vui nhộn.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/toystory.jpg" alt="Toy Story Land" class="single" />
+                    <h3>Toy Story Land</h3>
+                    <p>
+                        Thế giới đồ chơi sống động với các trò chơi dựa trên bộ phim Toy Story, bao gồm chuyến tàu mạo
+                        hiểm và khu vực tương tác với Woody và Buzz Lightyear.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/pirates.jpg" alt="Pirates of the Caribbean" class="single" />
+                    <h3>Pirates of the Caribbean</h3>
+                    <p>
+                        Chuyến đi thuyền mạo hiểm qua biển cả với hải tặc, kho báu và các hiệu ứng đặc biệt, lấy cảm
+                        hứng từ bộ phim nổi tiếng của Disney.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/dieuhanh.jpg" alt="Park Operations" class="single" />
+                    <h3>Đoàn diễu hành </h3>
+                    <p>
+                        Tham gia vào các buổi diễu hành hàng ngày với các nhân vật Disney yêu thích, âm nhạc sôi động và
+                        hiệu ứng đặc sắc tạo nên không khí lễ hội.
+                    </p>
+                </div>
+            </div>
+            <a href="diemden.html" class="back-btn">Quay Lại Điểm Đến</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Travel Shanghai. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Lấy user từ session trước, nếu không có thì mới kiểm tra bản "remember"
+        const currentUserRaw =
+            sessionStorage.getItem("currentUser") ||
+            localStorage.getItem("currentUser");
+
+        if (!currentUserRaw) {
+            window.location.href = "login.html";
+        }
+
+        document.getElementById("logoutBtn").addEventListener("click", (e) => {
+            e.preventDefault();
+            // xoá cả phiên hiện tại và remember
+            localStorage.removeItem("currentUser");
+            localStorage.removeItem("rememberMe");
+            sessionStorage.removeItem("currentUser");
+            sessionStorage.removeItem("loggedIn");
+            sessionStorage.removeItem("userEmail");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+
+</html>
