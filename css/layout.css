@@ -1,0 +1,69 @@
+:root {
+  --accent: #dc143c;
+  --glass-border: rgba(220, 20, 60, 0.35);
+  --glass-bg: linear-gradient(
+    180deg,
+    rgba(220, 20, 60, 0.15),
+    rgba(220, 20, 60, 0.05)
+  );
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 18px 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 20, 60, 0.65),
+    rgba(220, 20, 60, 0.25)
+  );
+  backdrop-filter: blur(6px);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255, 228, 225, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  background: rgba(255, 228, 225, 0.35);
+  transform: translateY(-2px);
+}
+
+/* ===== GLASS CARD ===== */
+.glass {
+  width: 90%;
+  max-width: 1200px;
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
+  border-radius: 26px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 45px rgba(220, 20, 60, 0.4);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 60px;
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(
+    0deg,
+    rgba(220, 20, 60, 0.65),
+    rgba(220, 20, 60, 0.25)
+  );
+  color: rgba(0, 0, 0, 0.8);
+}

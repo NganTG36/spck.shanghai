@@ -1,100 +1,36 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
     <title>Login</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/auth.css" />
   </head>
-
   <body>
-    <header class="topbar">
-      <div class="logo"></div>
-      <nav class="nav">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-        <a
-          id="openLogin"
-          href="#"
-          style="
-            border: 1px solid rgba(0, 0, 0, 0.22);
-            padding: 8px 14px;
-            border-radius: 8px;
-          "
-          aria-label="Open login"
-        ></a>
-      </nav>
-    </header>
-
     <main class="modal-wrap">
-      <section
-        id="loginModal"
-        class="glass"
-        role="dialog"
-        aria-labelledby="loginTitle"
-      >
-        <h1 id="loginTitle">Login</h1>
+      <section class="glass">
+        <h1>Login</h1>
 
-        <!-- chú ý: autocomplete="off" để tránh tự động điền -->
-        <form id="loginForm" autocomplete="off" novalidate>
+        <form id="loginForm">
           <div class="field">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="your@email.com"
-              required
-              autocomplete="off"
-            />
-            <span class="icon" aria-hidden="true">📧</span>
+            <input id="email" type="email" placeholder="Email" />
           </div>
 
           <div class="field">
-            <label for="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="••••••••"
-              required
-              autocomplete="off"
-            />
-            <!-- icon con mắt đặt TRONG field, dùng để show/hide -->
-            <span
-              class="icon password-toggle"
-              data-target="password"
-              role="button"
-              aria-label="Show password"
-              >👁</span
-            >
+            <input id="password" type="password" placeholder="Password" />
+            <span class="password-toggle" data-target="password">👁</span>
           </div>
 
-          <div class="row">
-            <label class="checkbox">
-              <input type="checkbox" id="remember" name="remember" /> Remember
-              me
-            </label>
-            <a class="forgot" href="#">Forget Password?</a>
-          </div>
+          <label> <input type="checkbox" id="remember" /> Remember me </label>
 
-          <button class="btn" type="submit">Login</button>
+          <button type="submit">Login</button>
 
-          <div class="small">
-            Don't have an account?
-            <a href="register.html" style="font-weight: 800">Register</a>
-          </div>
+          <p>Chưa có tài khoản? <a href="register.html">Register</a></p>
         </form>
       </section>
     </main>
 
-    <!-- load file xử lý login -->
     <script src="js/login.js"></script>
   </body>
 </html>

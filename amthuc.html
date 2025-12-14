@@ -1,291 +1,50 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ẩm Thực ShangHai</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ẩm Thực ShangHai - Travel Shanghai</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/page.css" />
+  </head>
 
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    :root {
-      --accent: #dc143c;
-      /* Crimson - màu hồng đỏ chủ đạo */
-      --glass-border: rgba(220, 20, 60, 0.3);
-      /* Hồng đỏ mờ cho border */
-      --glass-bg: linear-gradient(180deg,
-          rgba(220, 20, 60, 0.1),
-          rgba(220, 20, 60, 0.05));
-      /* Gradient hồng đỏ mờ */
-    }
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="diemden.html">Place</a>
+        <a href="amthuc.html">Food</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </nav>
+    </header>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <main class="hero">
+      <div class="glass">
+        <div class="welcome-text">
+          <h1>Ẩm Thực ShangHai</h1>
+          <p>
+            Khám phá những món ăn đặc sắc và hương vị độc đáo của ẩm thực Thượng
+            Hải, từ truyền thống đến hiện đại.
+          </p>
+        </div>
 
-    html,
-    body {
-      min-height: 100vh;
-      font-family: "Nunito", system-ui, Arial;
-      background: url(bcg.png) center/cover no-repeat fixed;
-      color: #000000;
-      /* Đen */
-    }
-
-    /* Header với glass effect hồng đỏ */
-    .header {
-      background: linear-gradient(180deg,
-          rgba(220, 20, 60, 0.6),
-          rgba(220, 20, 60, 0.2));
-      padding: 18px 28px;
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .nav {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav a {
-      color: #000000;
-      /* Đen */
-      text-decoration: none;
-      font-weight: 700;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
-      background: rgba(255, 228, 225, 0.1);
-      /* Hồng nhạt mờ */
-    }
-
-    .nav a:hover {
-      background: rgba(255, 228, 225, 0.2);
-      transform: translateY(-2px);
-    }
-
-    /* Welcome section với glass card hồng đỏ */
-    .hero {
-      min-height: calc(100vh - 200px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .glass {
-      width: 90%;
-      max-width: 1200px;
-      background: var(--glass-bg);
-      border: 1.5px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 40px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 12px 40px rgba(220, 20, 60, 0.4);
-      /* Hồng đỏ shadow */
-    }
-
-    .welcome-text {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .welcome-text h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: #000000;
-      /* Đen */
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    .welcome-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: rgba(0, 0, 0, 0.9);
-      /* Đen mờ */
-    }
-
-    /* Gallery section */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .gallery-item {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 16px;
-    }
-
-    .gallery-item h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #000000;
-    }
-
-    .gallery-item p {
-      color: rgba(0, 0, 0, 0.8);
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .gallery-item a {
-      text-decoration: none;
-      color: #dc143c;
-      font-weight: 500;
-    }
-
-    /* Nút quay lại */
-    .back-btn {
-      display: block;
-      margin: 40px auto 0;
-      padding: 12px 24px;
-      background: var(--accent);
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      text-align: center;
-      width: fit-content;
-    }
-
-    .back-btn:hover {
-      background: rgba(220, 20, 60, 0.8);
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(0deg,
-          rgba(220, 20, 60, 0.6),
-          rgba(220, 20, 60, 0.2));
-      color: rgba(0, 0, 0, 0.8);
-      /* Đen mờ */
-    }
-
-    @media (max-width: 768px) {
-      .glass {
-        padding: 20px;
-      }
-
-      .welcome-text h1 {
-        font-size: 32px;
-      }
-
-      .nav {
-        gap: 15px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="header">
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="diemden.html">Place</a>
-      <a href="amthuc.html">Food</a>
-      <a href="#contact">Contact</a>
-      <a href="#" id="logoutBtn" style="border: 1px solid rgba(220, 20, 60, 0.5)">Logout</a>
-    </nav>
-  </header>
-
-  <main class="hero">
-    <div class="glass">
-      <div class="welcome-text">
-        <h1>Ẩm Thực ShangHai</h1>
-        <p>Khám phá những món ăn đặc sắc và hương vị độc đáo của ẩm thực Thượng Hải, từ những món truyền thống đến hiện
-          đại.</p>
+        <div class="gallery" id="foodList"></div>
       </div>
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="img/micualong.jpg" alt="" />
-          <img src="img/micualong2.jpg" alt="" />
-          <h2>Mì Cua Lông</h2>
-          <p>Mì Cua Lông là món mì ăn kèm với thịt và gạch cua lông và mì cua lông khá đắt, nhưng ở Thượng Hải thì nó
-            được coi là món đáng thử nhất.</p>
-          <a href="chitiet.html">Xem chi tiết</a>
-        </div>
-        <div class="gallery-item">
-          <img src="img/tieulongb.jpg" alt="" />
-          <img src="img/tieulongb2.jpg" alt="" />
-          <h2>Tiểu Long Bao</h2>
-          <p>Tiểu long bao chính là một loại bánh bao hấp nhỏ có nước súp bên trong và giá cũng vừa phải.</p>
-          <a href="chitiet.html">Xem chi tiết</a>
-        </div>
-        <div class="gallery-item">
-          <img src="img/bbaochien.jpg" alt="" />
-          <img src="img/bbchien2.jpg" alt="" />
-          <h2>Bánh Bao Chiên</h2>
-          <p>Bánh bao chiên là một loại bánh bao nhỏ nhân thịt, được chiên áp chảo cho phần đáy giòn vàng, còn phần trên
-            mềm xốp là đặc sản ở Thượng Hải.</p>
-          <a href="chitiet.html">Xem chi tiết</a>
-        </div>
-        <div class="gallery-item">
-         <img src="img/tanghulu.jpg" alt="" />
-         <img src="img/tanghulu2.jpg" alt="" />
-          <h2>TangHuLu</h2>
-          <p>Tanghulu là món ăn thuyền thống của Trung Quốc, thường được bán nhiều trên các con phố vào mùa Đông. </p>
-          <a href="chitiet.html">Xem chi tiết</a>
-        </div>
-      </div>
-      <a href="index.html" class="back-btn">Quay Lại Trang Chủ</a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>© 2025 Travel Shanghai. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>© 2025 Travel Shanghai. All rights reserved.</p>
+    </footer>
 
-  <script>
-    // Lấy user từ session trước, nếu không có thì mới kiểm tra bản "remember"
-    const currentUserRaw =
-      sessionStorage.getItem("currentUser") ||
-      localStorage.getItem("currentUser");
-
-    if (!currentUserRaw) {
-      window.location.href = "login.html";
-    }
-
-    document.getElementById("logoutBtn").addEventListener("click", (e) => {
-      e.preventDefault();
-      // xoá cả phiên hiện tại và remember
-      localStorage.removeItem("currentUser");
-      localStorage.removeItem("rememberMe");
-      sessionStorage.removeItem("currentUser");
-      sessionStorage.removeItem("loggedIn");
-      sessionStorage.removeItem("userEmail");
-      window.location.href = "login.html";
-    });
-  </script>
-</body>
-
+    <script src="js/auth-guard.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/food-data.js"></script>
+    <script src="js/food-render.js"></script>
+  </body>
 </html>

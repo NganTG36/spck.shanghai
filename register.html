@@ -1,131 +1,50 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
     <title>Register</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/auth.css" />
   </head>
-
   <body>
-    <header class="topbar">
-      <!-- logo removed as requested -->
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-        <a
-          href="#"
-          style="
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 8px 14px;
-            border-radius: 8px;
-            color: #fff;
-          "
-          >Register</a
-        >
-      </nav>
-    </header>
-
     <main class="modal-wrap">
-      <section class="glass" role="dialog" aria-labelledby="registerTitle">
-        <button class="close-btn" id="closeBtn" aria-label="Close">✕</button>
+      <section class="glass">
+        <h1>Register</h1>
 
-        <h1 id="registerTitle">Register</h1>
-
-        <form id="registerForm" autocomplete="on" novalidate>
+        <form id="registerForm">
           <div class="field">
-            <label for="name">Full name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Your name"
-              required
-            />
-            <span class="icon" aria-hidden="true">👤</span>
+            <input id="name" placeholder="Full name" />
           </div>
 
           <div class="field">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="your@email.com"
-              required
-            />
-            <span class="icon" aria-hidden="true">📧</span>
+            <input id="email" type="email" placeholder="Email" />
           </div>
 
           <div class="field">
-            <label for="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="••••••••"
-              required
-            />
-            <span
-              class="icon password-toggle"
-              data-target="password"
-              role="button"
-              aria-label="Show password"
-              tabindex="0"
-              >👁</span
-            >
+            <input id="password" type="password" placeholder="Password" />
+            <span class="password-toggle" data-target="password">👁</span>
           </div>
 
           <div class="field">
-            <label for="confirm">Confirm Password</label>
             <input
               id="confirm"
-              name="confirm"
               type="password"
-              placeholder="••••••••"
-              required
+              placeholder="Confirm password"
             />
-            <span
-              class="icon password-toggle"
-              data-target="confirm"
-              role="button"
-              aria-label="Show password"
-              tabindex="0"
-              >👁</span
-            >
+            <span class="password-toggle" data-target="confirm">👁</span>
           </div>
 
-          <div class="row">
-            <label class="checkbox"
-              ><input type="checkbox" name="agree" /> I agree to terms</label
-            >
-          </div>
+          <button type="submit">Register</button>
 
-          <button class="btn" type="submit">Register</button>
-
-          <div class="small">
-            Already have an account?
-            <a href="login.html" style="font-weight: 800">Login</a>
-          </div>
+          <p class="switch-auth">
+            Đã có tài khoản?
+            <a href="login.html">Đăng nhập</a>
+          </p>
         </form>
       </section>
     </main>
 
-    <script>
-      const modal = document.querySelector(".glass");
-      const closeBtn = document.getElementById("closeBtn");
-
-      if (closeBtn && modal) {
-        closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
-      }
-    </script>
     <script src="js/register.js"></script>
   </body>
 </html>
